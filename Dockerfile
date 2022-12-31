@@ -1,6 +1,6 @@
 FROM gradle:latest AS builder
 WORKDIR /code
-COPY build.gradle settings.gradle /code
+COPY build.gradle settings.gradle .
 COPY . .
 RUN gradle build
 
