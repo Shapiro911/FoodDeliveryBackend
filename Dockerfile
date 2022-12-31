@@ -3,7 +3,7 @@ WORKDIR /code
 COPY build.gradle settings.gradle /code
 COPY . .
 RUN gradle build
-ARG JAR_FILE=build/libs/*.jar
+ARG JAR_FILE=code/build/libs/*.jar
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
