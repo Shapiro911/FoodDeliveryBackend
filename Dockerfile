@@ -10,4 +10,4 @@ ARG JAR_FILE=/code/build/libs/*.jar
 COPY --from=builder ${JAR_FILE} application.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java","-jar","/application.jar"]
