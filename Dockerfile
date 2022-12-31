@@ -1,5 +1,6 @@
 FROM openjdk:17 as builder
 WORKDIR /code
+RUN gradle build --no-daemon 
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
