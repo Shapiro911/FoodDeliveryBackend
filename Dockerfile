@@ -3,7 +3,6 @@ WORKDIR /code
 COPY build.gradle settings.gradle /code
 COPY . .
 RUN gradle build
-RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:17
 WORKDIR /code
