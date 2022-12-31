@@ -6,8 +6,8 @@ RUN gradle build
 
 FROM openjdk:17
 WORKDIR /code
-ARG JAR_FILE=/code/build/libs/*.jar
+ARG JAR_FILE=build/libs/*.jar
 COPY --from=builder ${JAR_FILE} application.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/build/libs/application.jar"]
+ENTRYPOINT ["java","-jar","/application.jar"]
