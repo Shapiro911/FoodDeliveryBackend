@@ -10,4 +10,4 @@ ARG JAR_FILE=/code/build/libs/*.jar
 COPY --from=builder ${JAR_FILE} application.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/application.jar"]
+ENTRYPOINT ["java","-jar","/build/libs/application.jar"]
