@@ -1,4 +1,4 @@
-FROM gradle:latest AS BUILD
+FROM gradle:latest AS builder
 WORKDIR /code
 COPY build.gradle settings.gradle /code
 COPY . .
