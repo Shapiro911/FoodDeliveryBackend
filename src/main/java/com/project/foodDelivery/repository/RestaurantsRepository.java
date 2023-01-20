@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface RestaurantsRepository extends MongoRepository<Restaurant, String> {
-//    @Query
-//    List<Restaurant> findAll();
+    @Query("{borough: ?0}")
+    List<Restaurant> findRestaurantsByBorough(String borough);
 }

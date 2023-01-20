@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -26,8 +27,8 @@ public class RestaurantsController {
 //    }
 
     @GetMapping
-    public List<Restaurant> getRestaurants() {
-        List<Restaurant> restaurants = restaurantsService.getRestaurants();
+    public List<Restaurant> getRestaurants(@RequestParam(value = "coordinates") List<Double> coordinates) throws IOException {
+        List<Restaurant> restaurants = restaurantsService.getRestaurants(coordinates);
         return restaurants;
     }
 
