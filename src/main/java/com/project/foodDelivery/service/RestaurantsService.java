@@ -2,10 +2,14 @@ package com.project.foodDelivery.service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.project.foodDelivery.exception.NotFoundException;
 import com.project.foodDelivery.model.DirectionResult;
 import com.project.foodDelivery.model.Restaurant;
+import com.project.foodDelivery.model.SortValues;
 import com.project.foodDelivery.repository.RestaurantsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,14 +18,11 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.swing.*;
-import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class RestaurantsService {
@@ -29,44 +30,47 @@ public class RestaurantsService {
     private RestaurantsRepository restaurantsRepository;
     @Autowired
     private MongoTemplate mongoTemplate;
-//    public void getRestaurants(int pageMax, int page) {
-//        System.out.println("Restaurants found with findAll():");
-//        System.out.println("-------------------------------");
-//        AtomicInteger counter = new AtomicInteger();
-//        for (Restaurant restaurant : restaurantsRepository.findAll()) {
-//            if (counter.get() == 20) {
-//                break;
-//            }
-//            System.out.println(restaurant);
-//            counter.getAndIncrement();
-//        }
-//    }
-
-    public List<Restaurant> getRestaurants(List<Double> coordinates) throws IOException {
-        AtomicInteger counter = new AtomicInteger();
+    public List<Restaurant> getRestaurants(List<Double> coordinates, SortValues sortValues, Integer page, Integer pageSize) throws IOException {
         List<Restaurant> restaurantList = new ArrayList<Restaurant>();
         String address = coordinates.get(0).toString() + " " + coordinates.get(1);
         List<String> nearbyBoroughs = getNearbyBoroughs(address);
-
         Point coord = new Point(coordinates.get(1), coordinates.get(0));
+        Pageable pageable = PageRequest.of(page, pageSize);
+
         Query query = new Query();
-        query.addCriteria(Criteria.where("address.coord").nearSphere(coord)).addCriteria(Criteria.where("borough").in(nearbyBoroughs)).limit(30);
-        
-        for (Restaurant restaurant : mongoTemplate.find(query, Restaurant.class)) {
-            if (counter.get() == 21) {
-                break;
-            }
+        query.addCriteria(Criteria.where("address.coord").nearSphere(coord).maxDistance(8000)).addCriteria(Criteria.where("borough").in(nearbyBoroughs)).with(pageable);
 
-            String coordinatesRestaurant = restaurant.getAddress().getCoord().get(1).toString() + " " + restaurant.getAddress().getCoord().get(0).toString();
-
-            Long duration = findDirection(address, coordinatesRestaurant, "bicycling").getDuration();
-            if (duration != 0) {
-                restaurant.setDuration(duration);
-                restaurantList.add(restaurant);
-                counter.getAndIncrement();
-            }
+        if (!sortValues.getPriceRange().isEmpty()) {
+            query.addCriteria(Criteria.where("price").in(sortValues.getPriceRange()));
+        }
+        if (sortValues.getFee() > 0 && sortValues.getFee() < 8) {
+            query.addCriteria(Criteria.where("fee").lte(sortValues.getFee()));
+        }
+        if (Objects.equals(sortValues.getSortBy(), "popular")) {
+            query.addCriteria(Criteria.where("rating").gte(4));
+        }
+        if (Objects.equals(sortValues.getSortBy(), "rating")) {
+            query.with(Sort.by(Sort.Direction.DESC, "rating"));
         }
 
+        for (Restaurant restaurant : mongoTemplate.find(query, Restaurant.class)) {
+            String coordinatesRestaurant = restaurant.getAddress().getCoord().get(1).toString() + " " + restaurant.getAddress().getCoord().get(0).toString();
+            Long duration = findDirection(address, coordinatesRestaurant, "bicycling").getDuration();
+
+            if (duration != 0) {
+                int durationRounded = Math.round((duration / 60 + 5) / 10) * 10;
+                if (durationRounded % 5 == 0) {
+                    restaurant.setDuration(durationRounded + "-" + (durationRounded + 15));
+                } else if (durationRounded < 10) {
+                    restaurant.setDuration("10-25");
+                } else if (durationRounded > (duration / 60)) {
+                    restaurant.setDuration(durationRounded + "-" + (durationRounded + 15));
+                } else {
+                    restaurant.setDuration(durationRounded + "-" + (durationRounded + 20));
+                }
+                restaurantList.add(restaurant);
+            }
+        }
         return restaurantList;
     }
 
@@ -98,7 +102,6 @@ public class RestaurantsService {
                 nearbyBoroughs.add(borough);
             }
         }
-        System.out.println(nearbyBoroughs);
         return nearbyBoroughs;
     }
 }

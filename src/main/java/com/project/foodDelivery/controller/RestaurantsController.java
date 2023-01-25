@@ -1,9 +1,14 @@
 package com.project.foodDelivery.controller;
 
 import com.project.foodDelivery.model.Restaurant;
+import com.project.foodDelivery.model.SortValues;
 import com.project.foodDelivery.service.RestaurantsService;
+
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -20,15 +25,12 @@ import java.util.List;
 public class RestaurantsController {
     @Autowired
     RestaurantsService restaurantsService;
+    private static final Logger log = LoggerFactory.getLogger(RestaurantsController.class);
 
-//    @GetMapping
-//    public void getRestaurants(@RequestParam(value = "pageMax") @NotNull @Min(1) int pageMax, @RequestParam(value = "page") @NotNull @Min(1) int page) {
-//        restaurantsService.getRestaurants(pageMax, page);
-//    }
-
-    @GetMapping
-    public List<Restaurant> getRestaurants(@RequestParam(value = "coordinates") List<Double> coordinates) throws IOException {
-        List<Restaurant> restaurants = restaurantsService.getRestaurants(coordinates);
+    @PostMapping
+    public List<Restaurant> getRestaurants(@RequestParam(value = "coordinates") List<Double> coordinates, @Valid @RequestBody @NotNull SortValues sortValues, @RequestParam(value = "page") @Min(1) Integer page, @RequestParam(value = "pageSize") @Min(1) Integer pageSize) throws IOException {
+        List<Restaurant> restaurants = restaurantsService.getRestaurants(coordinates, sortValues, page, pageSize);
+        log.info("Got restaurant list from DB");
         return restaurants;
     }
 

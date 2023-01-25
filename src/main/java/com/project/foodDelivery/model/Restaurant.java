@@ -28,14 +28,14 @@ public class Restaurant {
     private String id;
     private String name;
     private String img;
-    private Long duration;
+    private String duration;
     private Double rating;
     private Address address;
     private String cuisine;
     private String borough;
     private Double fee;
 
-    public Restaurant(String name, String img, Long duration, Double rating, String cuisine, Address address, String borough, Double fee) {
+    public Restaurant(String name, String img, String duration, Double rating, String cuisine, Address address, String borough, Double fee) {
         this.name = name;
         this.img = img;
         this.duration = duration;
@@ -100,11 +100,11 @@ public class Restaurant {
         this.borough = borough;
     }
 
-    public Long getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Long duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
