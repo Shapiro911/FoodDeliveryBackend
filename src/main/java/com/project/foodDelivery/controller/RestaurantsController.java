@@ -33,9 +33,4 @@ public class RestaurantsController {
         log.info("Got restaurant list from DB");
         return restaurants;
     }
-
-    @GetMapping("/test")
-        public int test() {
-            return 1;
-    }
 }

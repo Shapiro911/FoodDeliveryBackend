@@ -1,6 +1,8 @@
 package com.project.foodDelivery.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +10,8 @@ import java.util.List;
 
 @Data
 @Document("Restaurants")
+@Getter
+@Setter
 public class Restaurant {
     public class Address {
         private List<Double> coord;
@@ -34,8 +38,10 @@ public class Restaurant {
     private String cuisine;
     private String borough;
     private Double fee;
+    private List<String> dishes;
+    private Integer price;
 
-    public Restaurant(String name, String img, String duration, Double rating, String cuisine, Address address, String borough, Double fee) {
+    public Restaurant(String name, String img, String duration, Double rating, String cuisine, Address address, String borough, Double fee, List<String> dishes, Integer price) {
         this.name = name;
         this.img = img;
         this.duration = duration;
@@ -44,75 +50,7 @@ public class Restaurant {
         this.address = address;
         this.borough = borough;
         this.fee = fee;
-    }
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public Double getRating() {
-        return rating;
-    }
-
-    public void setRating(Double rating) {
-        this.rating = rating;
-    }
-
-    public String getCuisine() {
-        return cuisine;
-    }
-    public void setCuisine(String cuisine) {
-        this.cuisine = cuisine;
-    }
-
-    public String getBorough() {
-        return borough;
-    }
-
-    public void setBorough(String borough) {
-        this.borough = borough;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public Double getFee() {
-        return fee;
-    }
-
-    public void setFee(Double fee) {
-        this.fee = fee;
+        this.dishes = dishes;
+        this.price = price;
     }
 }

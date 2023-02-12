@@ -2,9 +2,15 @@ package com.project.foodDelivery.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Data
+@Getter
+@Setter
 public class SortValues {
     @NotBlank(message = "Invalid sort: empty sort")
     @NotNull(message = "Invalid sort: sort is null")

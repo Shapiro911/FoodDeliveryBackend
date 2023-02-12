@@ -2,11 +2,11 @@ package com.project.foodDelivery.service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.project.foodDelivery.exception.NotFoundException;
 import com.project.foodDelivery.model.DirectionResult;
 import com.project.foodDelivery.model.Restaurant;
 import com.project.foodDelivery.model.SortValues;
 import com.project.foodDelivery.repository.RestaurantsRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +30,7 @@ public class RestaurantsService {
     private RestaurantsRepository restaurantsRepository;
     @Autowired
     private MongoTemplate mongoTemplate;
-    public List<Restaurant> getRestaurants(List<Double> coordinates, SortValues sortValues, Integer page, Integer pageSize) throws IOException {
+    public List<Restaurant> getRestaurants(@NotNull List<Double> coordinates, @NotNull SortValues sortValues, Integer page, Integer pageSize) throws IOException {
         List<Restaurant> restaurantList = new ArrayList<Restaurant>();
         String address = coordinates.get(0).toString() + " " + coordinates.get(1);
         List<String> nearbyBoroughs = getNearbyBoroughs(address);
@@ -38,7 +38,6 @@ public class RestaurantsService {
         Pageable pageable = PageRequest.of(page, pageSize);
 
         Query query = new Query();
-        query.addCriteria(Criteria.where("address.coord").nearSphere(coord).maxDistance(8000)).addCriteria(Criteria.where("borough").in(nearbyBoroughs)).with(pageable);
 
         if (!sortValues.getPriceRange().isEmpty()) {
             query.addCriteria(Criteria.where("price").in(sortValues.getPriceRange()));
@@ -53,20 +52,20 @@ public class RestaurantsService {
             query.with(Sort.by(Sort.Direction.DESC, "rating"));
         }
 
+        query.addCriteria(Criteria.where("address.coord").nearSphere(coord).maxDistance(8000)).addCriteria(Criteria.where("borough").in(nearbyBoroughs)).with(pageable);
+
         for (Restaurant restaurant : mongoTemplate.find(query, Restaurant.class)) {
             String coordinatesRestaurant = restaurant.getAddress().getCoord().get(1).toString() + " " + restaurant.getAddress().getCoord().get(0).toString();
             Long duration = findDirection(address, coordinatesRestaurant, "bicycling").getDuration();
 
             if (duration != 0) {
                 int durationRounded = Math.round((duration / 60 + 5) / 10) * 10;
-                if (durationRounded % 5 == 0) {
-                    restaurant.setDuration(durationRounded + "-" + (durationRounded + 15));
-                } else if (durationRounded < 10) {
+                if (durationRounded < 10) {
                     restaurant.setDuration("10-25");
                 } else if (durationRounded > (duration / 60)) {
                     restaurant.setDuration(durationRounded + "-" + (durationRounded + 15));
                 } else {
-                    restaurant.setDuration(durationRounded + "-" + (durationRounded + 20));
+                    restaurant.setDuration(durationRounded + 5 + "-" + (durationRounded + 15));
                 }
                 restaurantList.add(restaurant);
             }
@@ -74,7 +73,7 @@ public class RestaurantsService {
         return restaurantList;
     }
 
-    public DirectionResult findDirection(String origin, String destination, String mode) throws IOException {
+    public DirectionResult findDirection(String origin, String destination, String mode) {
         String url = String.format("https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=AIzaSyCxyo5J8uJ1O5hzhV4fx2-hGiySpsmMQk4&mode=%s", origin, destination, mode);
         RestTemplate restTemplate = new RestTemplate();
 
