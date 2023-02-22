@@ -97,7 +97,7 @@ public class RestaurantsService {
 
         for(String borough : boroughsNY) {
             Long distance = findDirection(borough, address, "walking").getDistance();
-            if (distance <= 10000) {
+            if (distance <= 10000 && distance > 0) {
                 nearbyBoroughs.add(borough);
             }
         }

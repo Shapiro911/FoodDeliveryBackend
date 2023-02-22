@@ -1,0 +1,1051 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292a"
+    },
+    "address": {
+      "building": "2780",
+      "coord": [
+        -73.98241999999999,
+        40.579505
+      ],
+      "street": "Stillwell Avenue",
+      "zipcode": "11224"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "American",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1402358400000"
+          }
+        },
+        "grade": "A",
+        "score": 5
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1370390400000"
+          }
+        },
+        "grade": "A",
+        "score": 7
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1334275200000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1318377600000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      }
+    ],
+    "name": "Riviera Caterer",
+    "restaurant_id": "40356018",
+    "img": "american.jpg",
+    "rating": 4.2,
+    "price": 1,
+    "fee": 2.3,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d46283e747a5591c27f405",
+      "63d46283e747a5591c27f406",
+      "63d46283e747a5591c27f407",
+      "63d46283e747a5591c27f408",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d463e6e747a5591c27f473",
+      "63d4640de747a5591c27f474",
+      "63d4640de747a5591c27f475",
+      "63d4640de747a5591c27f476",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292b"
+    },
+    "address": {
+      "building": "7114",
+      "coord": [
+        -73.9068506,
+        40.6199034
+      ],
+      "street": "Avenue U",
+      "zipcode": "11234"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "Delicatessen",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1401321600000"
+          }
+        },
+        "grade": "A",
+        "score": 10
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1389657600000"
+          }
+        },
+        "grade": "A",
+        "score": 10
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1375488000000"
+          }
+        },
+        "grade": "A",
+        "score": 8
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1342569600000"
+          }
+        },
+        "grade": "A",
+        "score": 10
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1331251200000"
+          }
+        },
+        "grade": "A",
+        "score": 13
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1318550400000"
+          }
+        },
+        "grade": "A",
+        "score": 9
+      }
+    ],
+    "name": "Wilken'S Fine Food",
+    "restaurant_id": "40356483",
+    "img": "american.jpg",
+    "rating": 4.5,
+    "price": 4,
+    "fee": 7,
+    "dishes": [
+      "63d44a091cca24b476015a34",
+      "63d44a091cca24b476015a35",
+      "63d44a091cca24b476015a36",
+      "63d44a091cca24b476015a37",
+      "63d44a091cca24b476015a38",
+      "63d44a091cca24b476015a39",
+      "63d44a091cca24b476015a3a",
+      "63d44a091cca24b476015a3b",
+      "63d44a091cca24b476015a3c",
+      "63d44a091cca24b476015a3d",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44a091cca24b476015a28",
+      "63d44a091cca24b476015a29",
+      "63d44afd1cca24b476015a4c",
+      "63d44afd1cca24b476015a4d",
+      "63d44afd1cca24b476015a4e",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44afd1cca24b476015a52",
+      "63d44afd1cca24b476015a53",
+      "63d44afd1cca24b476015a54",
+      "63d44afd1cca24b476015a55",
+      "63d463e6e747a5591c27f46b",
+      "63d463e6e747a5591c27f46c",
+      "63d463e6e747a5591c27f46d",
+      "63d463e6e747a5591c27f46e",
+      "63d463e6e747a5591c27f46f",
+      "63d463e6e747a5591c27f470",
+      "63d463e6e747a5591c27f471",
+      "63d464b5e747a5591c27f4ac",
+      "63d464b5e747a5591c27f4ad"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292c"
+    },
+    "address": {
+      "building": "2206",
+      "coord": [
+        -74.1377286,
+        40.6119572
+      ],
+      "street": "Victory Boulevard",
+      "zipcode": "10314"
+    },
+    "borough": "Staten Island",
+    "cuisine": "Jewish/Kosher",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1412553600000"
+          }
+        },
+        "grade": "A",
+        "score": 9
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1400544000000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1365033600000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1327363200000"
+          }
+        },
+        "grade": "A",
+        "score": 9
+      }
+    ],
+    "name": "Kosher Island",
+    "restaurant_id": "40356442",
+    "img": "restaurant.jpg",
+    "rating": 4,
+    "price": 2,
+    "fee": 1,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d44afd1cca24b476015a68",
+      "63d44afd1cca24b476015a69",
+      "63d44afd1cca24b476015a6a",
+      "63d44afd1cca24b476015a6b",
+      "63d461ede747a5591c27f3e8",
+      "63d461ede747a5591c27f3e9",
+      "63d461ede747a5591c27f3ea",
+      "63d44a091cca24b476015a2c",
+      "63d44a091cca24b476015a2d",
+      "63d44a091cca24b476015a2e",
+      "63d44a091cca24b476015a2f",
+      "63d44a091cca24b476015a30",
+      "63d44a091cca24b476015a31",
+      "63d44a091cca24b476015a32",
+      "63d44a091cca24b476015a33",
+      "63d46283e747a5591c27f40b",
+      "63d46283e747a5591c27f40c"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292d"
+    },
+    "address": {
+      "building": "469",
+      "coord": [
+        -73.961704,
+        40.662942
+      ],
+      "street": "Flatbush Avenue",
+      "zipcode": "11225"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "Hamburgers",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1419897600000"
+          }
+        },
+        "grade": "A",
+        "score": 8
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1404172800000"
+          }
+        },
+        "grade": "B",
+        "score": 23
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1367280000000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1336435200000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      }
+    ],
+    "name": "Wendy'S",
+    "restaurant_id": "30112340",
+    "img": "burger.jpg",
+    "rating": 4.5,
+    "price": 1,
+    "fee": 0,
+    "dishes": [
+      "63d44a091cca24b476015a34",
+      "63d44a091cca24b476015a35",
+      "63d44a091cca24b476015a36",
+      "63d44a091cca24b476015a37",
+      "63d44a091cca24b476015a38",
+      "63d44a091cca24b476015a39",
+      "63d44a091cca24b476015a3a",
+      "63d44a091cca24b476015a3b",
+      "63d44a091cca24b476015a3c",
+      "63d44a091cca24b476015a3d",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44a091cca24b476015a28",
+      "63d44a091cca24b476015a29",
+      "63d44afd1cca24b476015a4c",
+      "63d44afd1cca24b476015a4d",
+      "63d44afd1cca24b476015a4e",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44afd1cca24b476015a52",
+      "63d44afd1cca24b476015a53",
+      "63d44afd1cca24b476015a54",
+      "63d44afd1cca24b476015a55",
+      "63d463e6e747a5591c27f46b",
+      "63d463e6e747a5591c27f46c",
+      "63d463e6e747a5591c27f46d",
+      "63d463e6e747a5591c27f46e",
+      "63d463e6e747a5591c27f46f",
+      "63d463e6e747a5591c27f470",
+      "63d463e6e747a5591c27f471",
+      "63d464b5e747a5591c27f4ac",
+      "63d464b5e747a5591c27f4ad"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292e"
+    },
+    "address": {
+      "building": "1007",
+      "coord": [
+        -73.856077,
+        40.848447
+      ],
+      "street": "Morris Park Ave",
+      "zipcode": "10462"
+    },
+    "borough": "Bronx",
+    "cuisine": "Bakery",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1393804800000"
+          }
+        },
+        "grade": "A",
+        "score": 2
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1378857600000"
+          }
+        },
+        "grade": "A",
+        "score": 6
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1358985600000"
+          }
+        },
+        "grade": "A",
+        "score": 10
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1322006400000"
+          }
+        },
+        "grade": "A",
+        "score": 9
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1299715200000"
+          }
+        },
+        "grade": "B",
+        "score": 14
+      }
+    ],
+    "name": "Morris Park Bake Shop",
+    "restaurant_id": "30075445",
+    "img": "burger.jpg",
+    "rating": 4.5,
+    "price": 2,
+    "fee": 1,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d44afd1cca24b476015a68",
+      "63d44afd1cca24b476015a69",
+      "63d44afd1cca24b476015a6a",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d46283e747a5591c27f40b",
+      "63d46283e747a5591c27f40c",
+      "63d46283e747a5591c27f40d",
+      "63d46283e747a5591c27f40e",
+      "63d46283e747a5591c27f40f",
+      "63d46283e747a5591c27f410",
+      "63d46283e747a5591c27f411",
+      "63d4630ee747a5591c27f412",
+      "63d4630ee747a5591c27f413",
+      "63d4630ee747a5591c27f414",
+      "63d4630ee747a5591c27f415",
+      "63d4630ee747a5591c27f416",
+      "63d4630ee747a5591c27f417",
+      "63d4630ee747a5591c27f418",
+      "63d4630ee747a5591c27f419",
+      "63d4630ee747a5591c27f41a",
+      "63d4630ee747a5591c27f41b",
+      "63d4630ee747a5591c27f41c",
+      "63d4630ee747a5591c27f41d",
+      "63d4630ee747a5591c27f41e",
+      "63d464b5e747a5591c27f4b7",
+      "63d464b5e747a5591c27f4b8",
+      "63d464b5e747a5591c27f4b9",
+      "63d464b5e747a5591c27f4ba",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f4292f"
+    },
+    "address": {
+      "building": "97-22",
+      "coord": [
+        -73.8601152,
+        40.7311739
+      ],
+      "street": "63 Road",
+      "zipcode": "11374"
+    },
+    "borough": "Queens",
+    "cuisine": "Jewish/Kosher",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1416787200000"
+          }
+        },
+        "grade": "Z",
+        "score": 20
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1358380800000"
+          }
+        },
+        "grade": "A",
+        "score": 13
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1343865600000"
+          }
+        },
+        "grade": "A",
+        "score": 13
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1323907200000"
+          }
+        },
+        "grade": "B",
+        "score": 25
+      }
+    ],
+    "name": "Tov Kosher Kitchen",
+    "restaurant_id": "40356068",
+    "img": "restaurant.jpg",
+    "rating": 4,
+    "price": 2,
+    "fee": 1,
+    "dishes": [
+      "63d464b5e747a5591c27f4b8",
+      "63d464b5e747a5591c27f4b9",
+      "63d464b5e747a5591c27f4ba",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc",
+      "63d464b5e747a5591c27f4bd",
+      "63d464b5e747a5591c27f4b5",
+      "63d464b5e747a5591c27f4b6",
+      "63d464b5e747a5591c27f4b7",
+      "63d44afd1cca24b476015a4d",
+      "63d44afd1cca24b476015a4e",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44a091cca24b476015a26",
+      "63d44a091cca24b476015a27",
+      "63d44a091cca24b476015a28",
+      "63d44a091cca24b476015a29"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42930"
+    },
+    "address": {
+      "building": "8825",
+      "coord": [
+        -73.8803827,
+        40.7643124
+      ],
+      "street": "Astoria Boulevard",
+      "zipcode": "11369"
+    },
+    "borough": "Queens",
+    "cuisine": "American",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1416009600000"
+          }
+        },
+        "grade": "Z",
+        "score": 38
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1398988800000"
+          }
+        },
+        "grade": "A",
+        "score": 10
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1362182400000"
+          }
+        },
+        "grade": "A",
+        "score": 7
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1328832000000"
+          }
+        },
+        "grade": "A",
+        "score": 13
+      }
+    ],
+    "name": "Brunos On The Boulevard",
+    "restaurant_id": "40356151",
+    "img": "american.jpg",
+    "rating": 4.2,
+    "price": 1,
+    "fee": 2.3,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d46283e747a5591c27f405",
+      "63d46283e747a5591c27f406",
+      "63d46283e747a5591c27f407",
+      "63d46283e747a5591c27f408",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d463e6e747a5591c27f473",
+      "63d4640de747a5591c27f474",
+      "63d4640de747a5591c27f475",
+      "63d4640de747a5591c27f476",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42931"
+    },
+    "address": {
+      "building": "6409",
+      "coord": [
+        -74.00528899999999,
+        40.628886
+      ],
+      "street": "11 Avenue",
+      "zipcode": "11219"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "American",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1405641600000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1375142400000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1360713600000"
+          }
+        },
+        "grade": "A",
+        "score": 11
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1345075200000"
+          }
+        },
+        "grade": "A",
+        "score": 2
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1313539200000"
+          }
+        },
+        "grade": "A",
+        "score": 11
+      }
+    ],
+    "name": "Regina Caterers",
+    "restaurant_id": "40356649",
+    "img": "american.jpg",
+    "rating": 4.2,
+    "price": 1,
+    "fee": 2.3,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d46283e747a5591c27f405",
+      "63d46283e747a5591c27f406",
+      "63d46283e747a5591c27f407",
+      "63d46283e747a5591c27f408",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d463e6e747a5591c27f473",
+      "63d4640de747a5591c27f474",
+      "63d4640de747a5591c27f475",
+      "63d4640de747a5591c27f476",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42932"
+    },
+    "address": {
+      "building": "1839",
+      "coord": [
+        -73.9482609,
+        40.6408271
+      ],
+      "street": "Nostrand Avenue",
+      "zipcode": "11226"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "Ice Cream, Gelato, Yogurt, Ices",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1405296000000"
+          }
+        },
+        "grade": "A",
+        "score": 12
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1373414400000"
+          }
+        },
+        "grade": "A",
+        "score": 8
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1341964800000"
+          }
+        },
+        "grade": "A",
+        "score": 5
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1329955200000"
+          }
+        },
+        "grade": "A",
+        "score": 8
+      }
+    ],
+    "name": "Taste The Tropics Ice Cream",
+    "restaurant_id": "40356731",
+    "img": "restaurant.jpg",
+    "rating": 4.5,
+    "price": 2,
+    "fee": 1,
+    "dishes": [
+      "63d44a091cca24b476015a34",
+      "63d44a091cca24b476015a35",
+      "63d44a091cca24b476015a36",
+      "63d44a091cca24b476015a37",
+      "63d44a091cca24b476015a38",
+      "63d44a091cca24b476015a39",
+      "63d44a091cca24b476015a3a",
+      "63d44a091cca24b476015a3b",
+      "63d44a091cca24b476015a3c",
+      "63d44a091cca24b476015a3d",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44a091cca24b476015a28",
+      "63d44a091cca24b476015a29",
+      "63d44afd1cca24b476015a4c",
+      "63d44afd1cca24b476015a4d",
+      "63d44afd1cca24b476015a4e",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44afd1cca24b476015a52",
+      "63d44afd1cca24b476015a53",
+      "63d44afd1cca24b476015a54",
+      "63d44afd1cca24b476015a55",
+      "63d463e6e747a5591c27f46b",
+      "63d463e6e747a5591c27f46c",
+      "63d463e6e747a5591c27f46d",
+      "63d463e6e747a5591c27f46e",
+      "63d463e6e747a5591c27f46f",
+      "63d463e6e747a5591c27f470",
+      "63d463e6e747a5591c27f471",
+      "63d464b5e747a5591c27f4ac",
+      "63d464b5e747a5591c27f4ad"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42933"
+    },
+    "address": {
+      "building": "2300",
+      "coord": [
+        -73.8786113,
+        40.8502883
+      ],
+      "street": "Southern Boulevard",
+      "zipcode": "10460"
+    },
+    "borough": "Bronx",
+    "cuisine": "American",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1401235200000"
+          }
+        },
+        "grade": "A",
+        "score": 11
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1371600000000"
+          }
+        },
+        "grade": "A",
+        "score": 4
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1339718400000"
+          }
+        },
+        "grade": "A",
+        "score": 3
+      }
+    ],
+    "name": "Wild Asia",
+    "restaurant_id": "40357217",
+    "img": "american.jpg",
+    "rating": 4.2,
+    "price": 1,
+    "fee": 2.3,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d46283e747a5591c27f405",
+      "63d46283e747a5591c27f406",
+      "63d46283e747a5591c27f407",
+      "63d46283e747a5591c27f408",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d463e6e747a5591c27f473",
+      "63d4640de747a5591c27f474",
+      "63d4640de747a5591c27f475",
+      "63d4640de747a5591c27f476",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42934"
+    },
+    "address": {
+      "building": "7715",
+      "coord": [
+        -73.9973325,
+        40.61174889999999
+      ],
+      "street": "18 Avenue",
+      "zipcode": "11214"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "American",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1397606400000"
+          }
+        },
+        "grade": "A",
+        "score": 5
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1366675200000"
+          }
+        },
+        "grade": "A",
+        "score": 2
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1335225600000"
+          }
+        },
+        "grade": "A",
+        "score": 5
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1323993600000"
+          }
+        },
+        "grade": "A",
+        "score": 2
+      }
+    ],
+    "name": "C & C Catering Service",
+    "restaurant_id": "40357437",
+    "img": "american.jpg",
+    "rating": 4.2,
+    "price": 1,
+    "fee": 2.3,
+    "dishes": [
+      "63d44afd1cca24b476015a67",
+      "63d46283e747a5591c27f405",
+      "63d46283e747a5591c27f406",
+      "63d46283e747a5591c27f407",
+      "63d46283e747a5591c27f408",
+      "63d46283e747a5591c27f409",
+      "63d46283e747a5591c27f40a",
+      "63d463e6e747a5591c27f473",
+      "63d4640de747a5591c27f474",
+      "63d4640de747a5591c27f475",
+      "63d4640de747a5591c27f476",
+      "63d464b5e747a5591c27f4bb",
+      "63d464b5e747a5591c27f4bc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "5eb3d668b31de5d588f42935"
+    },
+    "address": {
+      "building": "705",
+      "coord": [
+        -73.9653967,
+        40.6064339
+      ],
+      "street": "Kings Highway",
+      "zipcode": "11223"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "Jewish/Kosher",
+    "grades": [
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1415577600000"
+          }
+        },
+        "grade": "A",
+        "score": 11
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1381363200000"
+          }
+        },
+        "grade": "A",
+        "score": 13
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1349308800000"
+          }
+        },
+        "grade": "A",
+        "score": 7
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1337558400000"
+          }
+        },
+        "grade": "A",
+        "score": 9
+      },
+      {
+        "date": {
+          "$date": {
+            "$numberLong": "1325203200000"
+          }
+        },
+        "grade": "B",
+        "score": 19
+      }
+    ],
+    "name": "Seuda Foods",
+    "restaurant_id": "40360045",
+    "img": "restaurant.jpg",
+    "rating": 4,
+    "price": 2,
+    "fee": 1,
+    "dishes": [
+      "63d44a091cca24b476015a34",
+      "63d44a091cca24b476015a35",
+      "63d44a091cca24b476015a36",
+      "63d44a091cca24b476015a37",
+      "63d44a091cca24b476015a38",
+      "63d44a091cca24b476015a39",
+      "63d44a091cca24b476015a3a",
+      "63d44a091cca24b476015a3b",
+      "63d44a091cca24b476015a3c",
+      "63d44a091cca24b476015a3d",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44a091cca24b476015a28",
+      "63d44a091cca24b476015a29",
+      "63d44afd1cca24b476015a4c",
+      "63d44afd1cca24b476015a4d",
+      "63d44afd1cca24b476015a4e",
+      "63d44afd1cca24b476015a4f",
+      "63d44afd1cca24b476015a50",
+      "63d44afd1cca24b476015a51",
+      "63d44afd1cca24b476015a52",
+      "63d44afd1cca24b476015a53",
+      "63d44afd1cca24b476015a54",
+      "63d44afd1cca24b476015a55",
+      "63d463e6e747a5591c27f46b",
+      "63d463e6e747a5591c27f46c",
+      "63d463e6e747a5591c27f46d",
+      "63d463e6e747a5591c27f46e",
+      "63d463e6e747a5591c27f46f",
+      "63d463e6e747a5591c27f470",
+      "63d463e6e747a5591c27f471",
+      "63d464b5e747a5591c27f4ac",
+      "63d464b5e747a5591c27f4ad"
+    ]
+  }
+]
