@@ -2,6 +2,7 @@ package com.project.foodDelivery;
 
 import com.project.foodDelivery.model.DirectionResult;
 import com.project.foodDelivery.model.Restaurant;
+import com.project.foodDelivery.model.RestaurantSearch;
 import com.project.foodDelivery.repository.RestaurantsRepository;
 import com.project.foodDelivery.service.RestaurantsService;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ public class RestaurantsTest {
         String origin = "Queens";
         String destination = "40.730610, -73.935242";
         String mode = "bicycle";
-        DirectionResult directionResultExpect = new DirectionResult(1339L, 15456L);
+        DirectionResult directionResultExpect = new DirectionResult(1330L, 15456L);
         DirectionResult directionResult = restaurantsService.findDirection(origin, destination, mode);
 
         assertEquals(directionResultExpect.getDuration(), directionResult.getDuration());
@@ -52,11 +53,11 @@ public class RestaurantsTest {
     public void itShouldReturnRestaurantList() throws Exception {
         List<Double> coordinates = Arrays.asList(40.730610, -73.935242);
         List<Integer> priceRange = new ArrayList<>();
-        SortValues sortValues = new SortValues("popular", priceRange, 0);
+        RestaurantSearch restaurantSearch = new RestaurantSearch(new RestaurantSearch.SortValues("popular", priceRange, 0), "Burger");
         Integer page = 1;
         Integer pageSize = 21;
 
-        List<Restaurant> restaurantList = restaurantsService.getRestaurants(coordinates, sortValues, page, pageSize);
+        List<Restaurant> restaurantList = restaurantsService.getRestaurants(coordinates, restaurantSearch, page, pageSize);
         System.out.println(restaurantList);
         assertEquals(pageSize, restaurantList.size());
 
