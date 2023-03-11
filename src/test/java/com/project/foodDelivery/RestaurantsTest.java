@@ -2,7 +2,6 @@ package com.project.foodDelivery;
 
 import com.project.foodDelivery.model.DirectionResult;
 import com.project.foodDelivery.model.Restaurant;
-import com.project.foodDelivery.model.SortValues;
 import com.project.foodDelivery.repository.RestaurantsRepository;
 import com.project.foodDelivery.service.RestaurantsService;
 import org.junit.jupiter.api.Test;

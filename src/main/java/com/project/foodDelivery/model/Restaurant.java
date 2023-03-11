@@ -1,6 +1,5 @@
 package com.project.foodDelivery.model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -8,12 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Data
 @Document("Restaurants")
 @Getter
 @Setter
 public class Restaurant {
-    public class Address {
+    public static class Address {
         private List<Double> coord;
 
         public List<Double> getCoord() {
