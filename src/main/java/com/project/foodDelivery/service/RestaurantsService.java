@@ -51,47 +51,50 @@ public class RestaurantsService {
         String searchText = restaurantSearch.getSearchText();
 
         if (!searchText.isEmpty()) {
-            List<SpellSuggestion> spellSuggestions = new ArrayList<>();
-            JLanguageTool languageTool = new JLanguageTool(new BritishEnglish());
-            List<RuleMatch> matches = languageTool.check(searchText);
-
-            for (RuleMatch match: matches) {
-                List<String> bestSuggestions = new ArrayList<>();
-                for (int i = 0; i < 2 && i < match.getSuggestedReplacements().size(); i++) {
-                    bestSuggestions.add(match.getSuggestedReplacements().get(i));
-                }
-
-                while (bestSuggestions.size() != 2) {
-                    bestSuggestions.add(bestSuggestions.get(bestSuggestions.size() - 1));
-                }
-
-                SpellSuggestion spellSuggestion = new SpellSuggestion(bestSuggestions, match.getFromPos(), match.getToPos());
-                spellSuggestions.add(spellSuggestion);
-            }
-
-            List<String> spellCorrected = new ArrayList<>();
-            spellCorrected.add(searchText);
-
-            if (!spellSuggestions.isEmpty()) {
-                for (int i = 0; i < spellSuggestions.get(0).getSuggestions().size(); i++) {
-                    List<String> textParts = new ArrayList<>();
-                    Integer lastPos = 0;
-
-                    for (SpellSuggestion spellSuggestion : spellSuggestions) {
-                        textParts.add(searchText.substring(lastPos, spellSuggestion.getPositionFrom()));
-                        lastPos = spellSuggestion.getPositionTo();
-                        String typoWord = spellSuggestion.getSuggestions().get(i);
-                        textParts.add(typoWord);
-                    }
-
-                    textParts.add(searchText.substring(lastPos));
-                    spellCorrected.add(textParts.toString().replaceAll("\\[|\\]", "").replaceAll(", ", ""));
-                }
-            }
+//            List<SpellSuggestion> spellSuggestions = new ArrayList<>();
+//            JLanguageTool languageTool = new JLanguageTool(new BritishEnglish());
+//            List<RuleMatch> matches = languageTool.check(searchText);
+//
+//            for (RuleMatch match: matches) {
+//                List<String> bestSuggestions = new ArrayList<>();
+//                for (int i = 0; i < 2 && i < match.getSuggestedReplacements().size(); i++) {
+//                    bestSuggestions.add(match.getSuggestedReplacements().get(i));
+//                }
+//
+//                while (bestSuggestions.size() != 2) {
+//                    bestSuggestions.add(bestSuggestions.get(bestSuggestions.size() - 1));
+//                }
+//
+//                SpellSuggestion spellSuggestion = new SpellSuggestion(bestSuggestions, match.getFromPos(), match.getToPos());
+//                spellSuggestions.add(spellSuggestion);
+//            }
+//
+//            List<String> spellCorrected = new ArrayList<>();
+//            spellCorrected.add(searchText);
+//
+//            if (!spellSuggestions.isEmpty()) {
+//                for (int i = 0; i < spellSuggestions.get(0).getSuggestions().size(); i++) {
+//                    List<String> textParts = new ArrayList<>();
+//                    Integer lastPos = 0;
+//
+//                    for (SpellSuggestion spellSuggestion : spellSuggestions) {
+//                        textParts.add(searchText.substring(lastPos, spellSuggestion.getPositionFrom()));
+//                        lastPos = spellSuggestion.getPositionTo();
+//                        String typoWord = spellSuggestion.getSuggestions().get(i);
+//                        textParts.add(typoWord);
+//                    }
+//
+//                    textParts.add(searchText.substring(lastPos));
+//                    spellCorrected.add(textParts.toString().replaceAll("\\[|\\]", "").replaceAll(", ", ""));
+//                }
+//            }
 
             List<String> restaurantsByText = new ArrayList<>();
             List<String> productsByText = new ArrayList<>();
 
+
+            List<String> spellCorrected = new ArrayList<>();
+            spellCorrected.add(searchText);
             Query query = TextQuery.queryText(TextCriteria.forDefaultLanguage().matchingAny(spellCorrected.toString().replaceAll("\\[|\\]", ""))).sortByScore();
             for (Restaurant restaurant : mongoTemplate.find(addSortValuesToQuery(query, restaurantSearch, address), Restaurant.class)) {
                 restaurantsByText.add(restaurant.getName());
