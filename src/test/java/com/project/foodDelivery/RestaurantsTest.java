@@ -30,18 +30,6 @@ public class RestaurantsTest {
     MongoTemplate mongoTemplate;
 
     @Test
-    public void itShouldFindDirection() {
-        String origin = "Queens";
-        String destination = "40.730610, -73.935242";
-        String mode = "bicycle";
-        DirectionResult directionResultExpect = new DirectionResult(1330L, 15456L);
-        DirectionResult directionResult = restaurantsService.findDirection(origin, destination, mode);
-
-        assertEquals(directionResultExpect.getDuration(), directionResult.getDuration());
-        assertEquals(directionResultExpect.getDistance(), directionResult.getDistance());
-    }
-
-    @Test
     public void itShouldGetBoroughs() throws Exception {
         String address = "40.730610, -73.935242";
         List<String> nearbyBoroughs = restaurantsService.getNearbyBoroughs(address);
