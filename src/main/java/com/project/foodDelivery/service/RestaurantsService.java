@@ -3,16 +3,12 @@ package com.project.foodDelivery.service;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.project.foodDelivery.model.DirectionResult;
-import com.project.foodDelivery.model.Product;
 import com.project.foodDelivery.model.Restaurant;
 import com.project.foodDelivery.model.RestaurantSearch;
 import com.project.foodDelivery.repository.RestaurantsRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-import org.languagetool.JLanguageTool;
-import org.languagetool.language.BritishEnglish;
-import org.languagetool.rules.RuleMatch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,14 +32,6 @@ public class RestaurantsService {
     @Autowired
     private MongoTemplate mongoTemplate;
     public List<Restaurant> getRestaurants(@NotNull List<Double> coordinates, @NotNull RestaurantSearch restaurantSearch, Integer page, Integer pageSize) throws IOException {
-        @Getter
-        @AllArgsConstructor
-        class SpellSuggestion {
-            private List<String> suggestions;
-            private Integer positionFrom;
-            private Integer positionTo;
-        }
-
         List<Restaurant> restaurantList = new ArrayList<>();
         String address = coordinates.get(0).toString() + " " + coordinates.get(1);
         Point coord = new Point(coordinates.get(1), coordinates.get(0));
@@ -51,58 +39,14 @@ public class RestaurantsService {
         String searchText = restaurantSearch.getSearchText();
 
         if (!searchText.isEmpty()) {
-            List<SpellSuggestion> spellSuggestions = new ArrayList<>();
-            JLanguageTool languageTool = new JLanguageTool(new BritishEnglish());
-            List<RuleMatch> matches = languageTool.check(searchText);
-
-            for (RuleMatch match: matches) {
-                List<String> bestSuggestions = new ArrayList<>();
-                for (int i = 0; i < 2 && i < match.getSuggestedReplacements().size(); i++) {
-                    bestSuggestions.add(match.getSuggestedReplacements().get(i));
-                }
-
-                while (bestSuggestions.size() != 2) {
-                    bestSuggestions.add(bestSuggestions.get(bestSuggestions.size() - 1));
-                }
-
-                SpellSuggestion spellSuggestion = new SpellSuggestion(bestSuggestions, match.getFromPos(), match.getToPos());
-                spellSuggestions.add(spellSuggestion);
-            }
-
-            List<String> spellCorrected = new ArrayList<>();
-            spellCorrected.add(searchText);
-
-            if (!spellSuggestions.isEmpty()) {
-                for (int i = 0; i < spellSuggestions.get(0).getSuggestions().size(); i++) {
-                    List<String> textParts = new ArrayList<>();
-                    Integer lastPos = 0;
-
-                    for (SpellSuggestion spellSuggestion : spellSuggestions) {
-                        textParts.add(searchText.substring(lastPos, spellSuggestion.getPositionFrom()));
-                        lastPos = spellSuggestion.getPositionTo();
-                        String typoWord = spellSuggestion.getSuggestions().get(i);
-                        textParts.add(typoWord);
-                    }
-
-                    textParts.add(searchText.substring(lastPos));
-                    spellCorrected.add(textParts.toString().replaceAll("\\[|\\]", "").replaceAll(", ", ""));
-                }
-            }
-
             List<String> restaurantsByText = new ArrayList<>();
-            List<String> productsByText = new ArrayList<>();
             
-            Query query = TextQuery.queryText(TextCriteria.forDefaultLanguage().matchingAny(spellCorrected.toString().replaceAll("\\[|\\]", ""))).sortByScore();
+            Query query = TextQuery.queryText(TextCriteria.forDefaultLanguage().matchingAny(searchText));
             for (Restaurant restaurant : mongoTemplate.find(addSortValuesToQuery(query, restaurantSearch, address), Restaurant.class)) {
                 restaurantsByText.add(restaurant.getName());
             }
 
-            Query productQuery = TextQuery.queryText(TextCriteria.forDefaultLanguage().matchingAny(spellCorrected.toString().replaceAll("\\[|\\]", ""))).sortByScore();
-            for (Product product : mongoTemplate.find(productQuery, Product.class)) {
-                productsByText.add(product.getId());
-            }
-
-            Query geoQuery = new Query().addCriteria(Criteria.where("address.coord").nearSphere(coord).maxDistance(8000)).addCriteria(new Criteria().orOperator(Criteria.where("name").in(restaurantsByText), Criteria.where("dishes").in(productsByText))).with(pageable);
+            Query geoQuery = new Query().addCriteria(Criteria.where("address.coord").nearSphere(coord).maxDistance(8000)).addCriteria(new Criteria().orOperator(Criteria.where("name").in(restaurantsByText))).with(pageable);
             List<Restaurant> restaurantListTemp = findRestaurants(geoQuery, restaurantSearch, address);
             restaurantList.addAll(restaurantListTemp);
         } else {
@@ -124,11 +68,9 @@ public class RestaurantsService {
             JsonObject legs = direction.get("routes").getAsJsonArray().get(0).getAsJsonObject().get("legs").getAsJsonArray().get(0).getAsJsonObject();
             Long distance = legs.get("distance").getAsJsonObject().get("value").getAsLong();
             Long duration = legs.get("duration").getAsJsonObject().get("value").getAsLong();
-            DirectionResult directionResult = new DirectionResult(duration, distance);
-            return directionResult;
+            return new DirectionResult(duration, distance);
         } else {
-              DirectionResult directionResult = new DirectionResult(0L, 0L);
-              return directionResult;
+            return new DirectionResult(0L, 0L);
         }
     }
 
@@ -167,7 +109,6 @@ public class RestaurantsService {
         List<Restaurant> restaurantList = new ArrayList<>();
 
         for (Restaurant restaurant : mongoTemplate.find(addSortValuesToQuery(query, restaurantSearch, address), Restaurant.class)) {
-            System.out.println(restaurantList + "rList");
             String coordinatesRestaurant = restaurant.getAddress().getCoord().get(1).toString() + " " + restaurant.getAddress().getCoord().get(0).toString();
             Long duration = findDirection(address, coordinatesRestaurant, "bicycling").getDuration();
 
